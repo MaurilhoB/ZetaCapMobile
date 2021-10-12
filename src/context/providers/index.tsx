@@ -1,12 +1,15 @@
 import React from 'react';
-
-import ThemeProvider from './theme';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+import PreferencesProvider from './preferences';
+import ThemeProvider from './theme';
 
 const AppProvider: React.FC = ({ children }) => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemeProvider>{children}</ThemeProvider>
+      <PreferencesProvider>
+        <ThemeProvider>{children}</ThemeProvider>
+      </PreferencesProvider>
     </GestureHandlerRootView>
   );
 };
